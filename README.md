@@ -59,7 +59,19 @@ chmod +x mnist_cnn.py
 python mnist_cnn.py
 
 
-# 2-2 Install Tensorflow Object Detection API
+
+# 2-2 tfrecord 준비
+
+cd /tf_ssd/
+
+scp ubuntu@192.168.105.60:/home/ubuntu/tfrecords.zip ./
+
+unzip tfrecords.zip
+
+===========================================
+
+
+# 2-3 Install Tensorflow Object Detection API
 
 $ cd /tf_ssd/
 
@@ -119,16 +131,6 @@ $ python object_detection/builders/model_builder_test.py
 ------------Just you can see "OK" -> it is ok !!
 ----------------------------------------------------------------
 
-
-# 3-2 tfrecord 준비
-
-* ctl-alt-t to open onother terminal.
-
-cd /tf_ssd/
-
-scp ubuntu@192.168.105.60:/home/ubuntu/tfrecords.zip ./
-
-unzip tfrecord.zip
 
 ===========================================
 
