@@ -1,12 +1,15 @@
 
+## Prepare
+
+1. UFF 툴킷과 그래프 surgeon
+( https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html#installing ).
+
+./install_tensorflow_1.15.2.sh 
+
 UFF_PATH="$(python3 -c 'import uff; print(uff.__path__[0])')"
 sudo chmod +x ${UFF_PATH}/bin/convert_to_uff.py
 sudo ln -sf ${UFF_PATH}/bin/convert_to_uff.py /usr/local/bin/convert-to-uff
 
-## 전제 조건
-
-1. UFF 툴킷과 그래프 surgeon
-( https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html#installing ).
 
 2. [ssd_inception_v2_coco TensorFlow 학습 모델 다운로드]
 (http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz)
