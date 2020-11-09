@@ -285,7 +285,7 @@ $ INPUT_TYPE=image_tensor
 
 ls /tf_ssd/save_models/coco_test/
 
-mkdir /tf_ssd/pbfiles
+mkdir /tf_ssd/tod/pbfiles
 
 -------------------------------------------------------------
 ## [[ export.sh 를 작성하여 이용하세요
