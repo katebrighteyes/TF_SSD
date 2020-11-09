@@ -12,14 +12,21 @@ sudo ln -sf ${UFF_PATH}/bin/convert_to_uff.py /usr/local/bin/convert-to-uff
 
 
 2. [ssd_inception_v2_coco TensorFlow 학습 모델 다운로드]
-(http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz)
+cd ~/Downloads
+wget http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
+tar xzf ssd_inception_v2_coco_2017_11_17.tar.gz
+
 
 3. UFF 변환기를 사용하여 tensorflow 모델에서 전처리를 수행
 1. TensorFlow protobuf 파일 (`frozen_inference_graph.pb`)을 작업 디렉토리로 복사합니다.
- cp frozen_inference_graph.pb /usr/src/tensorrt/samples/sampleUffSSD/
+
+cd /usr/src/tensorrt/samples/sampleUffSSD
+
+sudo cp ~/Downloads/ssd_inception_v2_coco_2017_11_17/frozen_inference_graph.pb ./
+
 
 2. 변환
-cd /usr/src/tensorrt/samples/sampleUffSSD/
+
 sudo convert-to-uff frozen_inference_graph.pb -O NMS -p config.py
 
 이렇게하면 변환 된`.uff` 파일이`frozen_inference_graph.pb.uff`라는 이름의 입력과 동일한 디렉토리에 저장됩니다.
