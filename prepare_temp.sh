@@ -23,3 +23,5 @@ sudo mv protoc3/include/* /usr/local/include/
 cd /tf_ssd/tod/train_models/research
 protoc object_detection/protos/*.proto --python_out=.
 python object_detection/builders/model_builder_test.py
+
+
