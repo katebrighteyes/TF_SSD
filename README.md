@@ -85,8 +85,10 @@ git checkout 5ed215b2ae0fd9650d1650953afcffdd23bb28f6
 
 $ cd /tf_ssd/tod/train_models/research
 
-
 $ export PYTHONPATH=$PYTHONPATH:/tf_ssd/tod/train_models/research:/tf_ssd/tod/train_models/research/slim
+
+-------------------------------------------------------------
+## [[ prepare.sh 를 작성하여 이용하세요
 
 $ git clone https://github.com/cocodataset/cocoapi.git
 
@@ -95,7 +97,6 @@ $ cd cocoapi/PythonAPI
 $ make
 
 $ cp -r pycocotools /tf_ssd/tod/train_models/research/
-
 
 -----protocbuf install -------
 
@@ -113,7 +114,10 @@ $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
+## ]] prepare.sh 를 작성하여 이용하세요
+
 ------------Just you can see "OK" -> it is ok !!
+----------------------------------------------------------------
 
 
 # 3-2 tfrecord 준비
@@ -122,7 +126,7 @@ $ python object_detection/builders/model_builder_test.py
 
 cd /tf_ssd/
 
-scp ?? /tfrecord.zip ./
+scp ubuntu@192.168.105.60:/home/ubuntu/tfrecords.zip ./
 
 unzip tfrecord.zip
 
@@ -133,6 +137,9 @@ unzip tfrecord.zip
 cd /tf_ssd/tod/train_models/research
 
 $ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config 
+
+------------- 현재 레파지토리에 있는 ssd_inception_v2_coco.config 파일 참조하여 수정 ------------
+
 line: 151, 152 -> 주석(#) 처리
 
 해당 라인은 transfer learning을 하거나 fine_tuning할 때 사용하므로 현재는 사용하지 않는다.
@@ -195,6 +202,9 @@ mkdir /tf_ssd/save_models/
 
 mkdir /tf_ssd/save_models/coco_test
 
+-------------------------------------------------------------
+## [[ training.sh 를 작성하여 이용하세요
+
 $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
 $ MODEL_DIR='/tf_ssd/save_models/coco_test'
@@ -216,7 +226,9 @@ $ SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 
 $ python object_detection/model_main.py --pipeline_config_path=${PIPELINE_CONFIG_PATH} --model_dir=${MODEL_DIR} --num_train_steps=${NUM_TRAIN_STEPS} --num_eval_steps=${NUM_EVAL_STEPS} --checkpoint_dir=${PRE_TRAIN} --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES --num_clones=1 --ps_tasks=1
 
-1시에 시작 10분이면 end
+## ]] training.sh 를 작성하여 이용하세요
+
+# 10분이면 end
 =============================
 
 # dectivate !!!!
@@ -258,6 +270,9 @@ $ protoc object_detection/protos/*.proto --python_out=.
 
 $ python object_detection/builders/model_builder_test.py
 
+------------Just you can see "OK" -> it is ok !!
+
+
 cp /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config ./object_detection/samples/configs/
 
 $ vim ./object_detection/samples/configs/ssd_inception_v2_coco.config
@@ -266,14 +281,16 @@ line 101: override 부분 주석
 
 $ INPUT_TYPE=image_tensor
 
+ls /tf_ssd/save_models/coco_test/
+
+mkdir /tf_ssd/pbfiles
+
+-------------------------------------------------------------
+## [[ export.sh 를 작성하여 이용하세요
 
 $ PIPELINE_CONFIG_PATH='/tf_ssd/tod/export_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config'
 
-ls /tf_ssd/save_models/coco_test/
-
 $ TRAINED_CKPT_PREFIX='/tf_ssd/save_models/coco_test/model.ckpt-20'
-
-mkdir /tf_ssd/pbfiles
 
 ========================
 
@@ -284,5 +301,7 @@ $ python object_detection/export_inference_graph.py
 --pipeline_config_path=${PIPELINE_CONFIG_PATH}
 --trained_checkpoint_prefix=${TRAINED_CKPT_PREFIX}
 --output_directory=${EXPORT_DIR}
+
+## ]] export.sh 를 작성하여 이용하세요
 
 $ ls /tf_ssd/pbfiles/
