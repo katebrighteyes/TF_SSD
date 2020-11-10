@@ -48,9 +48,9 @@ cd ~/jetson-inference/build/aarch64/bin/networks/SSD-Inception-v2
 mv ssd_inception_v2_coco.uff _ssd_inception_v2_coco.uff
 mv ssd_inception_v2_coco.uff.1.1.7103.GPU.FP16.engine _ssd_inception_v2_coco.uff.1.1.7103.GPU.FP16.engine 
 
-cp /usr/src/tensorrt/samples/sampleUffSSD/sample_ssd_relu6.uff ./ssd_inception_v2_coco.uff
+cp /usr/src/tensorrt/data/ssd/sample_ssd_relu6.uff ./ssd_inception_v2_coco.uff
 
 cd ~/jetson-inference/build/aarch64/bin/
 
-./detectnet /dev/video0 --network=ssd-inception-v2
+./detectnet /dev/video1 --network=ssd-inception-v2
 
