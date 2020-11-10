@@ -1,0 +1,31 @@
+## PYTORCH FRUIT DETECTION ##
+
+$ cd jetson-inference/python/training/detection/
+
+$ git clone https://github.com/dusty-nv/pytorch-ssd
+
+$ cd pytorch-ssd
+
+
+## FRUIT DATA ##
+
+$ wget https://nvidia.box.com/shared/static/djf5w54rjvpqocsiztzaandq1m3avr7c.pth -O models/mobilenet-v1-ssd-mp-0_675.pth
+
+$ pip3 install -v -r requirements.txt
+
+$ python3 open_images_downloader.py --max-images=2500 --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" --data=data/fruit
+
+
+## TRAIN SSD ##
+$ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epochs=30
+
+## CONVERT ONNX ##
+
+python3 onnx_export.py --model-dir=models/fruit
+
+# This will save a model called ssd-mobilenet.onnx under jetson-inference/python/training/detection/ssd/models/fruit/
+
+## INFERENCE TEST ##
+
+detectnet --model=models/fruit/ssd-mobilenet.onnx --labels=models/fruit/labels.txt \
+          --input-blob=input_0 --output-cvg=scores --output-bbox=boxes
