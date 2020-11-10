@@ -29,3 +29,26 @@ python3 onnx_export.py --model-dir=models/fruit
 
 detectnet --model=models/fruit/ssd-mobilenet.onnx --labels=models/fruit/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes
+          
+-----------------------------------
+
+cd ~/jetson-inference/python/training/detection/pytorch-ssd/
+
+cd models/fruit
+mkdir onnx
+
+cd ~/jetson-inference/python/training/detection/pytorch-ssd/
+
+cp models/fruit/labels.txt ./models/fruit/onnx/
+
+cp models/fruit/ssd9.pth models/fruit/onnx/
+
+python3 onnx_export.py --model-dir=models/fruit/onnx
+
+ 
+detectnet --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
+          --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
+            /dev/video0 
+            
+            
+
