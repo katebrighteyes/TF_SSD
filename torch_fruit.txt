@@ -34,21 +34,28 @@ detectnet --model=models/fruit/ssd-mobilenet.onnx --labels=models/fruit/labels.t
 
 cd ~/jetson-inference/python/training/detection/pytorch-ssd/
 
-cd models/fruit
-mkdir onnx
+1) visit this web link and download onnx.zip file.
+https://drive.google.com/file/d/1xII1SJWRROJ2jDU5Ef1mMFQquNg1M-_j/view?usp=sharing
 
+2) go to Dwnloads folder and open with file explorer to extract onnx.zip
+
+cd ~/Downloads
+
+unzip onnx.zip
+
+cp -rf onnx ~/jetson-inference/python/training/detection/pytorch-ssd/models/fruit
+
+3) 
 cd ~/jetson-inference/python/training/detection/pytorch-ssd/
-
-cp models/fruit/labels.txt ./models/fruit/onnx/
-
-cp models/fruit/ssd9.pth models/fruit/onnx/
 
 python3 onnx_export.py --model-dir=models/fruit/onnx
 
  
 detectnet --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
-            /dev/video0 
+            /dev/video1
             
-            
+python detectnet.py --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
+          --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
+            /dev/video1            
 
