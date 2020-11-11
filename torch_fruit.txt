@@ -57,5 +57,7 @@ detectnet --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onn
             
 python detectnet.py --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
-            /dev/video1            
-
+            /dev/video1   
+            
+[test capture]
+https://github.com/katebrighteyes/TF_SSD/blob/main/detect_fruit.png 
