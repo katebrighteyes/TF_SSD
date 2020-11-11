@@ -13,7 +13,11 @@ NEED more than 1080ti ...
 
 # 1. venv setting
 
-sudo apt-get install python2.7-dev python3-dev protobuf-compiler python-tk python3-tk  python-pip python3-pip -y
+sudo apt-get update
+
+sudo apt-get install python2.7-dev python3-dev protobuf-compiler python-tk python3-tk  python-pip python3-pip curl -y
+
+
 
 ## install virtualenv
 
@@ -34,6 +38,8 @@ source venvssd/bin/activate
 #########################################
 
 # 2-0 install package
+
+pip install setuptools ==44.0.0
 
 pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml gast==0.2.2
 
