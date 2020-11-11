@@ -54,7 +54,9 @@ python3 onnx_export.py --model-dir=models/fruit/onnx
 detectnet --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
             /dev/video1
-            
+     
+cp ~/jetson-inference/build/aarch64/bin/detectnet.py ./
+     
 python detectnet.py --model=models/fruit/onnx/ssd-mobilenet.onnx --labels=models/fruit/onnx/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
             /dev/video1   
