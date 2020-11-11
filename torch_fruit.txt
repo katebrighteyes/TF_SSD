@@ -32,7 +32,9 @@ detectnet /dev/video1 --model=models/fruit/ssd-mobilenet.onnx --labels=models/fr
           
 -----------------------------------
 
-cd ~/jetson-inference/python/training/detection/pytorch-ssd/
+훈련된 파일로 테스트하고자 하는 경우 아래와 같이 진행해주세요.
+링크 웹사이트에 가서 다운로드를 한 다음 zip 을 해제하여 사용하시면 됩니다.
+테스트는 모니터 과일 사진도 되긴 하지만 실제 과일로 하는게 잘 되는것 같습니다.
 
 1) visit this web link and download onnx.zip file.
 https://drive.google.com/file/d/1xII1SJWRROJ2jDU5Ef1mMFQquNg1M-_j/view?usp=sharing
