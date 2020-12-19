@@ -11,7 +11,8 @@ mkdir coco_download/
 │   └── val2017
 
 
-vim /tf_ssd/tod/train_models/research/create_coco_tf_record.py
+cd /tf_ssd/tod/train_models/research/
+vim ./object_detection/dataset_tools/create_coco_tf_record.py
 
 comments about test data
 
