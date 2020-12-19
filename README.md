@@ -39,7 +39,7 @@ source venvssd/bin/activate
 
 # 2-0 install package
 
-pip install setuptools ==44.0.0
+pip install setuptools==44.0.0
 
 pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml gast==0.2.2
 
