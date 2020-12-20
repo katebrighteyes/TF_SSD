@@ -23,7 +23,7 @@ python object_detection/dataset_tools/create_coco_tf_record.py \
 --val_annotations_file=/tf_ssd/cocodata/annotations/coco_car_val.json
 --output_dir=/tf_ssd/cocodata/tfrecords
 
-python object_detection/dataset_tools/create_coco_tf_record.py --train_image_dir=/tf_ssd/cocodata/img/car_train2017 --train_annotations_file= /tf_ssd/cocodata/annotations/coco_car_train.json --val_image_dir=/tf_ssd/cocodata/img/car_val2017 --val_annotations_file=/tf_ssd/cocodata/annotations/coco_car_val.json --output_dir=/tf_ssd/cocodata/tfrecords
+python object_detection/dataset_tools/create_coco_tf_record.py --train_image_dir=/tf_ssd/cocodata/img/train2017 --train_annotations_file= /tf_ssd/cocodata/annotations/coco_train.json --val_image_dir=/tf_ssd/cocodata/img/val2017 --val_annotations_file=/tf_ssd/cocodata/annotations/coco_val.json --output_dir=/tf_ssd/cocodata/tfrecords
 
 
 
