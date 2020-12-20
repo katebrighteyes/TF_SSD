@@ -1,7 +1,7 @@
 https://cocodataset.org/#download
 
 cd /tf_ssd
-mkdir coco_download/ 
+mkdir cocodata/ 
 
 ├── dataset
 ├── cocodata
@@ -17,13 +17,13 @@ vim ./object_detection/dataset_tools/create_coco_tf_record.py
 comments about test data
 
 python object_detection/dataset_tools/create_coco_tf_record.py \
---train_image_dir=/ tf_ssd /cocodata/img/car_train2017 \
---train_annotations_file= /tf_ssd /cocodata/annotations/coco_car_train.json \
---val_image_dir=/ tf_ssd/ cocodata/img/car_val2017 \
---val_annotations_file=/ tf_ssd /cocodata/annotations/coco_car_val.json
---output_dir=/ tf_ssd/cocodata/tfrecords
+--train_image_dir=/tf_ssd/cocodata/img/car_train2017 \
+--train_annotations_file=/tf_ssd/cocodata/annotations/coco_car_train.json \
+--val_image_dir=/tf_ssd/cocodata/img/car_val2017 \
+--val_annotations_file=/tf_ssd/cocodata/annotations/coco_car_val.json
+--output_dir=/tf_ssd/cocodata/tfrecords
 
-python object_detection/dataset_tools/create_coco_tf_record.py --train_image_dir=/ tf_ssd /cocodata/img/car_train2017 --train_annotations_file= /tf_ssd /cocodata/annotations/coco_car_train.json --val_image_dir=/ tf_ssd/ cocodata/img/car_val2017 --val_annotations_file=/ tf_ssd /cocodata/annotations/coco_car_val.json --output_dir=/ tf_ssd/cocodata/tfrecords
+python object_detection/dataset_tools/create_coco_tf_record.py --train_image_dir=/tf_ssd/cocodata/img/car_train2017 --train_annotations_file= /tf_ssd/cocodata/annotations/coco_car_train.json --val_image_dir=/tf_ssd/cocodata/img/car_val2017 --val_annotations_file=/tf_ssd/cocodata/annotations/coco_car_val.json --output_dir=/tf_ssd/cocodata/tfrecords
 
 
 
