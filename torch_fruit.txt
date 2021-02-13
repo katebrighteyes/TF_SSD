@@ -13,6 +13,14 @@ $ wget https://nvidia.box.com/shared/static/djf5w54rjvpqocsiztzaandq1m3avr7c.pth
 
 $ pip3 install -v -r requirements.txt
 
+* takes more than 30 minutes ...
+
+* if you want to know the number of images.
+
+$ python3 open_images_downloader.py --stats-only --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" 
+
+* decide the number you want
+
 $ python3 open_images_downloader.py --max-images=2500 --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" --data=data/fruit
 
 
