@@ -21,15 +21,17 @@ $ pip3 install -v -r requirements.txt
 
 python3 open_images_downloader.py --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" --data=data/fruit
 
-3:42
+about 20 mimutes
 
-* or limit the number by argumet.
+* or limit the number by argument to reduce the trainnig time.
 
 $ python3 open_images_downloader.py --max-images=2500 --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" --data=data/fruit
 
 
 ## TRAIN SSD ##
 $ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epochs=30
+
+4:08
 
 ## CONVERT ONNX ##
 
