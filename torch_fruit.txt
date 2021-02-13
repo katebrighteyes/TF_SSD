@@ -31,7 +31,7 @@ $ python3 open_images_downloader.py --max-images=2500 --class-names "Apple,Orang
 ## TRAIN SSD ##
 $ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epochs=30
 
-4:08
+5:36
 
 ## CONVERT ONNX ##
 
