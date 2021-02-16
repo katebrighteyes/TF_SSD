@@ -43,6 +43,9 @@ pip install setuptools==44.0.0
 
 pip install tensorflow==1.14.0 Cython contextlib2 matplotlib pillow lxml gast==0.2.2
 
+if pc has GPU,
+
+pip install tensorflow-gpu==1.14.0 Cython contextlib2 matplotlib pillow lxml gast==0.2.2
 
 # 2-1 Tensorflow TEST
 
