@@ -194,7 +194,7 @@ line: 172,186 -> mscoco_label_map.pbtxt 경로를 설정해줘야 한다.
 
 186 }
 
-187 label_map_path: "/tf_ssd/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
+187 label_map_path: "/tf_ssd/tod/train_models/research/object_detection/data/mscoco_label_map.pbtxt"
 
 188 shuffle: false
 
