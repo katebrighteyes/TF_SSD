@@ -4,9 +4,11 @@ vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_incep
 vim ./trainingTF.sh 
 ./trainingTF.sh 
 cd /tf_ssd/tod/export_models/research/
+
+rm -rf /tf_ssd/pbfiles/*
 vim ./export.sh 
 ./export.sh 
-rm -rf /tf_ssd/pbfiles/*
+
 ls /tf_ssd/pbfiles/
 ./export.sh 
 cp /tf_ssd/pbfiles/frozen_inference_graph.pb /tf_ssd/convert/
