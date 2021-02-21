@@ -269,7 +269,7 @@ $ cd export_models
 
 $ git checkout ae0a9409212d0072938fa60c9f85740bb89ced7e
 
-Don't be afraid to see Error !
+Ignore Error !
 
 please check different branch* 
 
