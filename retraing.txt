@@ -1,0 +1,12 @@
+rm -rf /tf_ssd/save_models/coco_test/*
+cd /tf_ssd/tod/train_models/research
+vim /tf_ssd/tod/train_models/research/object_detection/samples/configs/ssd_inception_v2_coco.config
+vim ./trainingTF.sh 
+./trainingTF.sh 
+cd /tf_ssd/tod/export_models/research/
+vim ./export.sh 
+./export.sh 
+rm -rf /tf_ssd/pbfiles/*
+ls /tf_ssd/pbfiles/
+./export.sh 
+cp /tf_ssd/pbfiles/frozen_inference_graph.pb /tf_ssd/convert/
