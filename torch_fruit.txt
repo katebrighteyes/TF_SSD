@@ -32,7 +32,12 @@ $ python3 open_images_downloader.py --max-images=2500 --class-names "Apple,Orang
 $ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epochs=30
 
 # if not xavier agx
-python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=2 --epochs=30 --pretrained-ssd=models/mb1-ssd-Epoch-16.pth --lr=0.05
+
+Please download mb1-ssd-Epoch-17.pth file
+
+https://drive.google.com/file/d/1-_1vCpykemFYAhrq7i-1n7cZeiyQ7zVI/view?usp=sharing
+
+python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=2 --epochs=30 --pretrained-ssd=models/mb1-ssd-Epoch-17.pth --lr=0.05
 
 
 5:36
