@@ -77,3 +77,7 @@ user@user-desktop:/usr/src/tensorrt/bin$ sudo ./sample_uff_ssd
 
     params.visualThreshold = 0.5;
 
+
+** TRT 지원 레이어와 함수
+
+https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html
